@@ -17,4 +17,24 @@ func main() {
 	for i, friend := range classFriends {
 		fmt.Println("class friend no", i+1, friend)
 	}
+
+	//closure & pointer
+	listFriend := func (l []*string) {
+		for i, friend := range l {
+			fmt.Println("class friend no", i+1, friend)
+		}
+	}
+	
+	var pointerClassFriends = make([]*string, 10)
+
+	// copy(&classFriends, pointerClassFriends)
+	// append(pointerClassFriends, classFriends&...)
+
+	for i, friend := range classFriends {
+		pFriend := friend
+		pointerClassFriends[i] = &pFriend
+	}
+
+
+	listFriend(pointerClassFriends)
 }
