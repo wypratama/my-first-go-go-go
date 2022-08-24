@@ -2,6 +2,10 @@ package main
 
 import "fmt"
 
+type Person struct {
+	name string
+}
+
 func main() {
 	for i := 0; i <= 10; i++ {
 		if i%2 == 0 {
@@ -37,4 +41,20 @@ func main() {
 
 
 	listFriend(pointerClassFriends)
+
+
+	//closure + pointer + struck
+	var person = []*Person {
+			{name: "Aulia Nurhady"},
+			{name: "San Sayidul Akdam Agusta"},
+			{name: "Kadek Anjasmara"},
+	}
+
+	listStructPerson := func (l []*Person) {
+		for i, friend := range l {
+			fmt.Println("class friend no", i+1, friend.name)
+		}
+	}
+
+	listStructPerson(person)
 }
